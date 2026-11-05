@@ -1,0 +1,12 @@
+{
+  "name": "eiss2",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm install --prefix server && npm install --prefix dashboard",
+    "build": "npm run build --prefix dashboard",
+    "start": "node server/src/index.js --broker",
+    "dev": "concurrently -n server,ui -c blue,green \"node --watch server/src/index.js --broker\" \"npm run dev --prefix dashboard\"",
+    "sim": "npm run sim --prefix server"
+  },
+  "devDependencies": { "concurrently": "^9.1.0" }
+}
